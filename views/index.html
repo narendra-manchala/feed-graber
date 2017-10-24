@@ -56,27 +56,41 @@
 //            }
 //        })
         FB.api(
-            '/me',
+            '/me/accounts',
             'GET',
-            {"fields":"about,email"},
+            {"fields":"about,feed"},
             function(response) {
-                if(response && !response.error){
-                    console.log(response);
-                }
+                console.log(response);
+                console.log(response.data[0].about);
+//                if(response){
+//                    console.log(response);
+//                }else{
+//                    console.log("Not working")
+//                }
             }
         );
     }
+
 </script>
 
 <h1>FB authentication</h1>
 
 
 <fb:login-button
-        scope="public_profile,email"
+        scope="email,manage_pages"
         onlogin="checkLoginState();">
 </fb:login-button>
 
+<div>
+    <p id="feed">
 
+    </p>
+</div>
+
+
+<script>
+
+</script>
 
 
 </body>
